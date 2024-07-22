@@ -20,7 +20,7 @@ public class Usuario implements Serializable {
     private UUID id;
     @NotNull
     private String nome;
-    @NotBlank
+    @NotNull
     private String senha;
     @NotNull
     private String email;

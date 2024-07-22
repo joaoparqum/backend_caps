@@ -3,11 +3,13 @@ package com.api.capssaude.model;
 import com.api.capssaude.pessoa.Pessoa;
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
 import java.util.Date;
 import java.util.UUID;
 
+//@EqualsAndHashCode(callSuper = true)
 @Entity
 @Table(name = "TB_PROFISSIONAL")
 @Data
@@ -18,6 +20,7 @@ public class Profissional extends Pessoa implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
+
     private String crm;
     private String cod_especialidade;
     private int especialdade;
