@@ -15,7 +15,7 @@ import java.util.UUID;
 
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
-@RequestMapping("/caps")
+@RequestMapping("/caps/profissional")
 public class ProfissionalController {
 
     final ProfissionalService profService;

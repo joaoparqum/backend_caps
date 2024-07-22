@@ -1,15 +1,14 @@
 package com.api.capssaude.model;
 
 import com.api.capssaude.pessoa.Pessoa;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.io.Serializable;
 import java.util.Date;
 import java.util.UUID;
+
+@Entity
 @Table(name = "TB_PROFISSIONAL")
 @Data
 public class Profissional extends Pessoa implements Serializable {
