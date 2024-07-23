@@ -9,6 +9,7 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "TB_PESSOA")
+@Inheritance(strategy = InheritanceType.JOINED)
 @Data
 public abstract class Pessoa implements Serializable {
 

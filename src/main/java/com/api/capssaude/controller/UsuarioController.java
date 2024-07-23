@@ -28,7 +28,7 @@ public class UsuarioController {
     }
 
     @PostMapping
-    public ResponseEntity<Object> saveUsuaro(@RequestBody @Valid UsuarioDTO usuDto){
+    public ResponseEntity<Object> saveUsuario(@RequestBody @Valid UsuarioDTO usuDto) throws Exception {
         Usuario usuario = new Usuario();
         BeanUtils.copyProperties(usuDto, usuario);
         return ResponseEntity.status(HttpStatus.CREATED).body(usuarioService.save(usuario));
@@ -60,7 +60,7 @@ public class UsuarioController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Object> updateUsuario(@PathVariable(value = "id") UUID id,
-                                             @RequestBody @Valid UsuarioDTO usuDto){
+                                             @RequestBody @Valid UsuarioDTO usuDto) throws Exception {
         Optional<Usuario> usuarioOptional = usuarioService.findById(id);
         if (!usuarioOptional.isPresent()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario não encontrado!");

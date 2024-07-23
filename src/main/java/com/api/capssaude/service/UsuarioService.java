@@ -16,7 +16,12 @@ public class UsuarioService {
     @Autowired
     UsuarioRepository usuarioRepository;
 
-    public Usuario save(Usuario usuario){
+    public Usuario save(Usuario usuario) throws Exception{
+        //regra de negócio para verificar se usuário já existe no sistema
+        Optional<Usuario> usuarioExistente = usuarioRepository.findByEmail(usuario.getEmail());
+        if (usuarioExistente.isPresent()) {
+            throw new Exception("Usuário já existe com este e-mail!");
+        }
         return usuarioRepository.save(usuario);
     }
 
