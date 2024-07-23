@@ -37,4 +37,9 @@ public class UsuarioService {
         usuarioRepository.delete(usuario);
     }
 
+    //método para procurar o usuário pelo nome
+    public List<Usuario> findByNome(String nome) {
+        return usuarioRepository.findByNome(nome);
+    }
+
 }

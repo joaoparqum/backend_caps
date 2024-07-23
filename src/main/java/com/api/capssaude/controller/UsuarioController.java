@@ -34,6 +34,16 @@ public class UsuarioController {
         return ResponseEntity.status(HttpStatus.CREATED).body(usuarioService.save(usuario));
     }
 
+    //método para procurar o usuário pelo nome
+    @GetMapping("/nome/{nome}")
+    public ResponseEntity<Object> getUsuarioByNome(@PathVariable(value = "nome") String nome) {
+        List<Usuario> usuario = usuarioService.findByNome(nome);
+        if(usuario.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuário não encontrado!");
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(usuario);
+    }
+
     @GetMapping
     public ResponseEntity<List<Usuario>> getAllUsuario(){
         return ResponseEntity.status(HttpStatus.CREATED).body(usuarioService.findAll());
