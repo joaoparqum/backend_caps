@@ -2,6 +2,7 @@ package com.api.capssaude.controller;
 
 import com.api.capssaude.dto.ProfDTO;
 import com.api.capssaude.dto.UsuarioDTO;
+import com.api.capssaude.interfaces.IUsuarioControl;
 import com.api.capssaude.model.Profissional;
 import com.api.capssaude.model.Usuario;
 import com.api.capssaude.service.ProfissionalService;
@@ -19,7 +20,7 @@ import java.util.UUID;
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping("/caps/usuario")
-public class UsuarioController {
+public class UsuarioController implements IUsuarioControl {
 
     final UsuarioService usuarioService;
 
@@ -27,6 +28,7 @@ public class UsuarioController {
         this.usuarioService = usuarioService;
     }
 
+    @Override
     @PostMapping
     public ResponseEntity<Object> saveUsuario(@RequestBody @Valid UsuarioDTO usuDto) throws Exception {
         Usuario usuario = new Usuario();
@@ -35,6 +37,7 @@ public class UsuarioController {
     }
 
     //método para procurar o usuário pelo nome
+    @Override
     @GetMapping("/nome/{nome}")
     public ResponseEntity<Object> getUsuarioByNome(@PathVariable(value = "nome") String nome) {
         List<Usuario> usuario = usuarioService.findByNome(nome);
@@ -44,11 +47,13 @@ public class UsuarioController {
         return ResponseEntity.status(HttpStatus.OK).body(usuario);
     }
 
+    @Override
     @GetMapping
     public ResponseEntity<List<Usuario>> getAllUsuario(){
         return ResponseEntity.status(HttpStatus.CREATED).body(usuarioService.findAll());
     }
 
+    @Override
     @GetMapping("/{id}")
     public ResponseEntity<Object> getOneUsuario(@PathVariable(value = "id") UUID id){
         Optional<Usuario> usuario = usuarioService.findById(id);
@@ -58,6 +63,7 @@ public class UsuarioController {
         return ResponseEntity.status(HttpStatus.OK).body(usuario.get());
     }
 
+    @Override
     @DeleteMapping("/{id}")
     public ResponseEntity<Object> deleteUsuario(@PathVariable(value = "id") UUID id){
         Optional<Usuario> usuarioOptional = usuarioService.findById(id);
@@ -68,6 +74,7 @@ public class UsuarioController {
         return ResponseEntity.status(HttpStatus.OK).body("Usuario deletado com sucesso!");
     }
 
+    @Override
     @PutMapping("/{id}")
     public ResponseEntity<Object> updateUsuario(@PathVariable(value = "id") UUID id,
                                              @RequestBody @Valid UsuarioDTO usuDto) throws Exception {

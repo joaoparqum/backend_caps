@@ -1,6 +1,7 @@
 package com.api.capssaude.controller;
 
 import com.api.capssaude.dto.PacienteDTO;
+import com.api.capssaude.interfaces.IPacienteControl;
 import com.api.capssaude.model.Paciente;
 import com.api.capssaude.model.Usuario;
 import com.api.capssaude.service.PacienteService;
@@ -17,7 +18,7 @@ import java.util.UUID;
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping("/caps/paciente")
-public class PacienteController {
+public class PacienteController implements IPacienteControl {
 
     final PacienteService pacienteService;
 
@@ -25,6 +26,7 @@ public class PacienteController {
         this.pacienteService = pacienteService;
     }
 
+    @Override
     @PostMapping
     public ResponseEntity<Object> savePaciente(@RequestBody @Valid PacienteDTO pacienteDTO) {
         Paciente paciente = new Paciente();
@@ -32,11 +34,13 @@ public class PacienteController {
         return ResponseEntity.status(HttpStatus.CREATED).body(pacienteService.save(paciente));
     }
 
+    @Override
     @GetMapping
     public ResponseEntity<List<Paciente>> getAllPaciente(){
         return ResponseEntity.status(HttpStatus.CREATED).body(pacienteService.findAll());
     }
 
+    @Override
     @GetMapping("/{id}")
     public ResponseEntity<Object> getOnePaciente(@PathVariable(value = "id") UUID id){
         Optional<Paciente> paciente = pacienteService.findById(id);
@@ -46,6 +50,7 @@ public class PacienteController {
         return ResponseEntity.status(HttpStatus.OK).body(paciente.get());
     }
 
+    @Override
     @DeleteMapping("/{id}")
     public ResponseEntity<Object> deletePaciente(@PathVariable(value = "id") UUID id){
         Optional<Paciente> pacienteOptional = pacienteService.findById(id);
@@ -56,6 +61,7 @@ public class PacienteController {
         return ResponseEntity.status(HttpStatus.OK).body("Paciente deletado com sucesso!");
     }
 
+    @Override
     @PutMapping("/{id}")
     public ResponseEntity<Object> updatePaciente(@PathVariable(value = "id") UUID id,
                                                 @RequestBody @Valid PacienteDTO pacienteDTO) {
