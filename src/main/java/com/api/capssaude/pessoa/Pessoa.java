@@ -21,24 +21,28 @@ public abstract class Pessoa implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
-    @NotNull
+    @NotNull(message = "O nome não pode ser nulo!")
     private String nome;
 
-    @Size(max = 11, message = "O CPF deve ter no máximo 11 caracteres")
-    @NotNull
+    @Size(min = 11, max = 11, message = "O CPF deve ter exatamente 11 caracteres!")
+    @NotNull(message = "O CPF não pode ser nulo!")
     private String cpf;
 
-    @NotNull
+    @NotNull(message = "A Data de nascimento não pode ser nula!")
     private Date dataDeNascimento;
 
-    @Size(max = 8, message = "O CEP deve ter no máximo 8 caracteres")
+    @Size(min = 8, max = 8, message = "O CEP deve ter exatamente 8 caracteres!")
+    @NotNull(message = "O CEP não pode ser nulo!")
     private String cep;
 
+    @NotNull(message = "O bairro não pode ser nulo!")
     private String bairro;
+    @NotNull(message = "O logradouro não pode ser nulo!")
     private String logradouro;
+
     private String complemento;
 
-    @Size(max = 9, message = "O Telefone deve ter no máximo 9 caracteres")
+    @Size(min = 9, max = 9, message = "O Telefone deve ter exatamente 9 caracteres!")
     private String telefone;
 
 }
