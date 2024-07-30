@@ -31,12 +31,13 @@ public abstract class Pessoa implements Serializable {
     @NotNull(message = "A Data de nascimento não pode ser nula!")
     private Date dataDeNascimento;
 
-    @Size(min = 9, max = 9, message = "O CEP deve ter exatamente 8 caracteres!")
+    @Size(min = 8, max = 9, message = "O CEP deve ter exatamente 8 caracteres!")
     @NotNull(message = "O CEP não pode ser nulo!")
     private String cep;
 
     @NotNull(message = "O bairro não pode ser nulo!")
     private String bairro;
+
     @NotNull(message = "O logradouro não pode ser nulo!")
     private String logradouro;
 
