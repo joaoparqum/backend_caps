@@ -3,7 +3,6 @@ package com.api.capssaude.controller;
 import com.api.capssaude.dto.PacienteDTO;
 import com.api.capssaude.interfaces.IPacienteControl;
 import com.api.capssaude.model.Paciente;
-import com.api.capssaude.model.Usuario;
 import com.api.capssaude.service.PacienteService;
 import jakarta.validation.Valid;
 import org.springframework.beans.BeanUtils;
