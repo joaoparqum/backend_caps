@@ -10,6 +10,8 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -45,7 +47,7 @@ public class ConsultaController implements IConsultaControl{
     }
 
     @Override
-    @PutMapping("/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Object> getOneConsulta(UUID id) {
       Optional<Consulta> consulta = consultaService.findById(id);
         if (!consulta.isPresent()) {
@@ -55,7 +57,7 @@ public class ConsultaController implements IConsultaControl{
     }
 
     @Override
-    @PutMapping("/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Object> deleteConsulta(UUID id) {
         Optional<Consulta> consultaOptional = consultaService.findById(id);
         if (!consultaOptional.isPresent()) {

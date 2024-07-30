@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+import com.api.capssaude.interfaces.IConsultaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,16 +16,16 @@ import br.com.caelum.stella.validation.CPFValidator;
 import br.com.caelum.stella.validation.InvalidStateException;
 
 @Service
-public class ConsultaService{
+public class ConsultaService implements IConsultaService {
 
-@Autowired
-ConsultaRepository consultaRepository;
+    @Autowired
+    ConsultaRepository consultaRepository;
 
 
-public Consulta save(Consulta consulta){
-    validateCPF(consulta.getCpf());
-return consultaRepository.save(consulta);
-}
+    public Consulta save(Consulta consulta){
+        validateCPF(consulta.getCpf());
+        return consultaRepository.save(consulta);
+    }
 
     //método para validar o CPF, da dependencia stella core
     private void validateCPF(String cpf) {
@@ -38,19 +39,18 @@ return consultaRepository.save(consulta);
     }
 
 
-public List<Consulta> findAll(){
-return consultaRepository.findAll();
-}
+    public List<Consulta> findAll(){
+        return consultaRepository.findAll();
+    }
 
 
-public Optional<Consulta> findById(UUID id){
-return consultaRepository.findById(id);
-}
+    public Optional<Consulta> findById(UUID id){
+        return consultaRepository.findById(id);
+    }
 
 
-public void delete(Consulta consulta){
-consultaRepository.delete(consulta);
-}
-
+    public void delete(Consulta consulta){
+        consultaRepository.delete(consulta);
+    }
 
 }
