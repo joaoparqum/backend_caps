@@ -25,7 +25,7 @@ public class PacienteController implements IPacienteControl {
         this.pacienteService = pacienteService;
     }
 
-    @Override
+    @Override               
     @PostMapping
     public ResponseEntity<Object> savePaciente(@RequestBody @Valid PacienteDTO pacienteDTO) {
         Paciente paciente = new Paciente();

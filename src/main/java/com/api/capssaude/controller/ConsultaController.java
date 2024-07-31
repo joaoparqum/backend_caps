@@ -12,7 +12,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -35,20 +38,22 @@ public class ConsultaController implements IConsultaControl{
     }
 
     @Override
-    public ResponseEntity<Object> saveConsulta(@Valid ConsultaDTO consultaDTO) throws Exception {
+    @PostMapping
+    public ResponseEntity<Object> saveConsulta(@RequestBody @Valid ConsultaDTO consultaDTO){
         Consulta consulta = new Consulta();
         BeanUtils.copyProperties(consultaDTO, consulta);
         return ResponseEntity.status(HttpStatus.CREATED).body(consultaService.save(consulta));
     }
 
     @Override
+    @GetMapping
     public ResponseEntity<List<Consulta>> getAllConsulta() {
         return ResponseEntity.status(HttpStatus.CREATED).body(consultaService.findAll());
     }
 
     @Override
     @GetMapping("/{id}")
-    public ResponseEntity<Object> getOneConsulta(UUID id) {
+    public ResponseEntity<Object> getOneConsulta(@PathVariable(value = "id") UUID id){
       Optional<Consulta> consulta = consultaService.findById(id);
         if (!consulta.isPresent()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Consulta não encontrada!");
@@ -58,7 +63,7 @@ public class ConsultaController implements IConsultaControl{
 
     @Override
     @DeleteMapping("/{id}")
-    public ResponseEntity<Object> deleteConsulta(UUID id) {
+    public ResponseEntity<Object> deleteConsulta(@PathVariable(value = "id") UUID id) {
         Optional<Consulta> consultaOptional = consultaService.findById(id);
         if (!consultaOptional.isPresent()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Consulta não encontrada!");
@@ -69,8 +74,8 @@ public class ConsultaController implements IConsultaControl{
 
     @Override
      @PutMapping("/{id}")
-    public ResponseEntity<Object> updateConsulta(UUID id, @Valid ConsultaDTO consultaDTO) throws Exception {
-        
+    public ResponseEntity<Object> updateConsulta(@PathVariable(value = "id") UUID id,
+    @RequestBody @Valid ConsultaDTO consultaDTO){
         Optional<Consulta> consultaOptional = consultaService.findById(id);
         if (!consultaOptional.isPresent()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Consulta não encontrada!");

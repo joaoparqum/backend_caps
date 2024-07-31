@@ -13,12 +13,10 @@ import jakarta.validation.Valid;
 
 public interface IConsultaControl {
     
-    public ResponseEntity<Object> saveConsulta(@RequestBody @Valid ConsultaDTO usuDto) throws Exception;
+    public ResponseEntity<Object> saveConsulta(@RequestBody @Valid ConsultaDTO usuDto);
     public ResponseEntity<List<Consulta>> getAllConsulta();
     public ResponseEntity<Object> getOneConsulta(@PathVariable(value = "id") UUID id);
     public ResponseEntity<Object> deleteConsulta(@PathVariable(value = "id") UUID id);
-    public ResponseEntity<Object> updateConsulta(@PathVariable(value = "id") UUID id,
-        
-    @RequestBody @Valid ConsultaDTO consDto) throws Exception;
-
-                                                }
+    public ResponseEntity<Object> updateConsulta(@PathVariable(value = "id") UUID id, 
+    @RequestBody @Valid ConsultaDTO consDto); 
+                                          }
