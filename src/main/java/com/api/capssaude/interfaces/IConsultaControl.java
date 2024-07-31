@@ -18,5 +18,5 @@ public interface IConsultaControl {
     public ResponseEntity<Object> getOneConsulta(@PathVariable(value = "id") UUID id);
     public ResponseEntity<Object> deleteConsulta(@PathVariable(value = "id") UUID id);
     public ResponseEntity<Object> updateConsulta(@PathVariable(value = "id") UUID id, 
-    @RequestBody @Valid ConsultaDTO consDto); 
+                                             @RequestBody @Valid ConsultaDTO consDto); 
                                           }

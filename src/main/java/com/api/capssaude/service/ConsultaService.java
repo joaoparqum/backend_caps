@@ -21,7 +21,7 @@ public class ConsultaService implements IConsultaService {
     @Autowired
     ConsultaRepository consultaRepository;
 
-
+    @Override
     public Consulta save(Consulta consulta){
         validateCPF(consulta.getCpf());
         return consultaRepository.save(consulta);
@@ -38,19 +38,20 @@ public class ConsultaService implements IConsultaService {
         }
     }
 
-
+    @Override
     public List<Consulta> findAll(){
         return consultaRepository.findAll();
     }
 
-
+    @Override
     public Optional<Consulta> findById(UUID id){
         return consultaRepository.findById(id);
     }
 
-
+    @Override
     public void delete(Consulta consulta){
         consultaRepository.delete(consulta);
     }
 
+   
 }

@@ -28,7 +28,6 @@ import jakarta.validation.Valid;
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping("/caps/consulta")
-
 public class ConsultaController implements IConsultaControl{
     
     final ConsultaService consultaService;
@@ -75,7 +74,7 @@ public class ConsultaController implements IConsultaControl{
     @Override
      @PutMapping("/{id}")
     public ResponseEntity<Object> updateConsulta(@PathVariable(value = "id") UUID id,
-    @RequestBody @Valid ConsultaDTO consultaDTO){
+                                                  @RequestBody @Valid ConsultaDTO consultaDTO){
         Optional<Consulta> consultaOptional = consultaService.findById(id);
         if (!consultaOptional.isPresent()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Consulta não encontrada!");
