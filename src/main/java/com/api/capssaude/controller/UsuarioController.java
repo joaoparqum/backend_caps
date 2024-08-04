@@ -77,7 +77,7 @@ public class UsuarioController implements IUsuarioControl {
     @Override
     @PutMapping("/{id}")
     public ResponseEntity<Object> updateUsuario(@PathVariable(value = "id") UUID id,
-                                             @RequestBody @Valid UsuarioDTO usuDto) throws Exception {
+                                             @RequestBody @Valid UsuarioDTO usuDto) {
         Optional<Usuario> usuarioOptional = usuarioService.findById(id);
         if (!usuarioOptional.isPresent()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario não encontrado!");

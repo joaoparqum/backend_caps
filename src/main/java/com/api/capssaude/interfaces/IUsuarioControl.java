@@ -18,7 +18,6 @@ public interface IUsuarioControl {
     public ResponseEntity<Object> getOneUsuario(@PathVariable(value = "id") UUID id);
     public ResponseEntity<Object> deleteUsuario(@PathVariable(value = "id") UUID id);
     public ResponseEntity<Object> updateUsuario(@PathVariable(value = "id") UUID id,
-        
-    @RequestBody @Valid UsuarioDTO usuDto) throws Exception;
+    @RequestBody @Valid UsuarioDTO usuDto);
 
 }
