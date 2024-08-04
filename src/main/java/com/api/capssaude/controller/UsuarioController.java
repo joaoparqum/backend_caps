@@ -85,6 +85,6 @@ public class UsuarioController implements IUsuarioControl {
         Usuario usuario = new Usuario();
         BeanUtils.copyProperties(usuDto, usuario);
         usuario.setId(usuarioOptional.get().getId());
-        return ResponseEntity.status(HttpStatus.OK).body(usuarioService.save(usuario));
+        return ResponseEntity.status(HttpStatus.OK).body(usuarioService.update(usuario));
     }
 }

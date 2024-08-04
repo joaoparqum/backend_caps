@@ -10,6 +10,7 @@ import java.util.UUID;
 public interface IUsuarioService {
 
     public Usuario save(Usuario usuario) throws Exception;
+    public Usuario update(Usuario usuario);
     public List<Usuario> findAll();
     public Optional<Usuario> findById(UUID id);
     public void delete(Usuario usuario);

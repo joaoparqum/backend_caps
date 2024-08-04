@@ -27,6 +27,12 @@ public class UsuarioService implements IUsuarioService {
         return usuarioRepository.save(usuario);
     }
 
+    //método para salvar usuário sem verificação de email existente, apenas atualização
+    @Override
+    public Usuario update(Usuario usuario) {
+        return usuarioRepository.save(usuario);
+    }
+
     @Override
     public List<Usuario> findAll(){
         return usuarioRepository.findAll();
