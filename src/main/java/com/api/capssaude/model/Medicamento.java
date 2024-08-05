@@ -1,7 +1,7 @@
 package com.api.capssaude.model;
 
-import org.hibernate.validator.constraints.UUID;
-
+import java.util.UUID;
+import java.io.Serializable;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;

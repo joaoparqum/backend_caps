@@ -3,7 +3,7 @@ package com.api.capssaude.controller;
 import java.util.List;
 
 import java.util.Optional;
-import org.hibernate.validator.constraints.UUID;
+import java.util.UUID;
 import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.api.capssaude.dto.MedicamentoDTO;
 import com.api.capssaude.interfaces.IMedicamentoControl;
-import com.api.capssaude.model.Consulta;
 import com.api.capssaude.model.Medicamento;
 import com.api.capssaude.service.MedicamentoService;
 

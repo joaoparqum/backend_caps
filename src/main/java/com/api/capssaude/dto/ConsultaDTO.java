@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.util.List;
 import java.util.UUID;
 
+import com.api.capssaude.model.Medicamento;
 import com.api.capssaude.model.Paciente;
 
 import jakarta.validation.constraints.NotBlank;

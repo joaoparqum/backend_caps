@@ -4,9 +4,9 @@ import java.util.UUID;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.api.capssaude.model.Medicamento;
+import com.api.capssaude.model.Estoque;
 
 @Repository
-public interface MedicamentoRepository extends JpaRepository<Medicamento, UUID> {
-
+public interface EstoqueRepository extends JpaRepository<Estoque, UUID>{
+    
 }

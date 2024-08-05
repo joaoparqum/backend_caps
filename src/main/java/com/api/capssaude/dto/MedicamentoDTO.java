@@ -1,7 +1,6 @@
 package com.api.capssaude.dto;
 
-import org.hibernate.validator.constraints.UUID;
-
+import java.util.UUID;
 import jakarta.validation.constraints.NotBlank;
 
 public record MedicamentoDTO (UUID id,
@@ -12,4 +11,3 @@ public record MedicamentoDTO (UUID id,
      @NotBlank String dosagem)                          
 {}
 
-//código, nome do medicamento, descrição, horário, dosagem,

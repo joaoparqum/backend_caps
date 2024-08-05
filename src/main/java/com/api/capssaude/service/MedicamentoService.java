@@ -2,13 +2,15 @@ package com.api.capssaude.service;
 import java.util.List;
 import java.util.Optional;
 
-import org.hibernate.validator.constraints.UUID;
+import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.api.capssaude.interfaces.IMedicamentoService;
 import com.api.capssaude.model.Medicamento;
 import com.api.capssaude.repository.MedicamentoRepository;
 
+@Service
 public class MedicamentoService implements IMedicamentoService {
 
      @Autowired

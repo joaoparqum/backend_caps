@@ -1,6 +1,8 @@
+package com.api.capssaude.interfaces;
+
 import java.util.Optional;
 import java.util.List;
-import org.hibernate.validator.constraints.UUID;
+import java.util.UUID;
 
 import com.api.capssaude.model.Medicamento;
 
