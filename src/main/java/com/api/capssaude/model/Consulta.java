@@ -10,6 +10,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
@@ -27,8 +29,6 @@ public class Consulta implements Serializable{
     private UUID id;
 
     @NotNull
-    private String codigo;
-    @NotNull
     @OneToOne
     private Paciente paciente;
     @NotNull
@@ -38,8 +38,8 @@ public class Consulta implements Serializable{
     @NotNull
     private String sintomas;
     private String duracao;
-    @NotNull
-    private List<String> medicamento;
+    @OneToMany(mappedBy = "consulta")
+    private List<Medicamento> medicamento;
     @NotNull
     private String orientacao;
     private String AcompanhanteLegal;
