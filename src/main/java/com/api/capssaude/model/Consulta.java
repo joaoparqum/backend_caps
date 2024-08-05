@@ -10,6 +10,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
@@ -28,9 +30,8 @@ public class Consulta implements Serializable{
     @NotNull
     private String codigo;
     @NotNull
-    private String nomePaciente;
-    @NotNull
-    private String cpf;
+    @OneToOne
+    private Paciente paciente;
     @NotNull
     private Date data;
     @NotNull
@@ -42,5 +43,5 @@ public class Consulta implements Serializable{
     private List<String> medicamento;
     @NotNull
     private String orientacao;
-    private String responsavelLegal;
+    private String AcompanhanteLegal;
 }
