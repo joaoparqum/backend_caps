@@ -1,6 +1,7 @@
 package com.api.capssaude.controller;
 
 import com.api.capssaude.dto.ProfDTO;
+import com.api.capssaude.interfaces.IProfissionalControl;
 import com.api.capssaude.model.Profissional;
 import com.api.capssaude.service.ProfissionalService;
 import jakarta.validation.Valid;
@@ -16,7 +17,7 @@ import java.util.UUID;
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping("/caps/profissional")
-public class ProfissionalController {
+public class ProfissionalController implements IProfissionalControl {
 
     final ProfissionalService profService;
 
@@ -24,6 +25,7 @@ public class ProfissionalController {
         this.profService = profService;
     }
 
+    @Override
     @PostMapping
     public ResponseEntity<Object> saveProf(@RequestBody @Valid ProfDTO profDto){
         Profissional profissional = new Profissional();
@@ -31,11 +33,13 @@ public class ProfissionalController {
         return ResponseEntity.status(HttpStatus.CREATED).body(profService.save(profissional));
     }
 
+    @Override
     @GetMapping
     public ResponseEntity<List<Profissional>> getAllProf(){
         return ResponseEntity.status(HttpStatus.CREATED).body(profService.findAll());
     }
 
+    @Override
     @GetMapping("/{id}")
     public ResponseEntity<Object> getOneProf(@PathVariable(value = "id") UUID id){
         Optional<Profissional> profissional = profService.findById(id);
@@ -45,6 +49,7 @@ public class ProfissionalController {
         return ResponseEntity.status(HttpStatus.OK).body(profissional.get());
     }
 
+    @Override
     @DeleteMapping("/{id}")
     public ResponseEntity<Object> deleteProf(@PathVariable(value = "id") UUID id){
         Optional<Profissional> profOptional = profService.findById(id);
@@ -55,6 +60,7 @@ public class ProfissionalController {
         return ResponseEntity.status(HttpStatus.OK).body("Profissonal deletado com sucesso!");
     }
 
+    @Override
     @PutMapping("/{id}")
     public ResponseEntity<Object> updateProf(@PathVariable(value = "id") UUID id,
                                                    @RequestBody @Valid ProfDTO profDto){

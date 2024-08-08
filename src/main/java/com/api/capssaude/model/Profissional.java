@@ -7,9 +7,9 @@ import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
-//@EqualsAndHashCode(callSuper = true)
 @Entity
 @Table(name = "TB_PROFISSIONAL")
 @Data
@@ -21,9 +21,10 @@ public class Profissional extends Pessoa implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
+    private String sexo;
     private String crm;
-    private String cod_especialidade;
+    private String codEspecialidade;
     private int especialdade;
-    private Date dia_atendimento;
-    private String hora_atendimento;
+    private List<Date> diaAtendimento;
+    private List<String> horaAtendimento;
 }
