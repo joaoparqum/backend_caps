@@ -12,7 +12,7 @@ import com.api.capssaude.model.Medicamento;
 import jakarta.validation.Valid;
 
 public interface IMedicamentoControl {
-        public ResponseEntity<Object> saveMedicamento(@RequestBody @Valid MedicamentoDTO medicamentoDto);
+    public ResponseEntity<Object> saveMedicamento(@RequestBody @Valid MedicamentoDTO medicamentoDto);
     public ResponseEntity<List<Medicamento>> getAllMedicamento();
     public ResponseEntity<Object> getOneMedicamento(@PathVariable(value = "id") UUID id);
     public ResponseEntity<Object> deleteMedicamento(@PathVariable(value = "id") UUID id);

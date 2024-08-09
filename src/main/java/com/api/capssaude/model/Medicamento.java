@@ -15,7 +15,7 @@ import lombok.Data;
 @Entity
 @Table(name = "TB_Medicamento")
 @Data
-public class Medicamento{
+public class Medicamento implements Serializable{
     private static final long serialVersionUID = 1L;
 
     @Id
