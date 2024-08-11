@@ -2,7 +2,10 @@ package com.api.capssaude.model;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.List;
 import java.util.UUID;
+
+import com.api.capssaude.pessoa.Pessoa;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,23 +17,19 @@ import lombok.Data;
 @Entity
 @Table(name = "TB_Psicologo")
 @Data
-public class Psicologo implements Serializable {
+public class Psicologo extends Pessoa implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
     
-    private String codigo;
-    private String nome;    
     private String sexo;
     private String CRP;
-    private Date dataNascimento;
     private String email;
-    private String telefone;
     private String endereco;
-    private Date diasDiasponiveis;
-    private String horariosDisponiveis;
+    private List<String> diasDiasponiveis;
+    private List<String> horariosDisponiveis;
     private String comentarios;
 }
 
