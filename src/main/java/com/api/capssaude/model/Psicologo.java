@@ -27,8 +27,8 @@ public class Psicologo extends Pessoa implements Serializable {
     private String sexo;
     private String CRP;
     private String email;
-    private String endereco;
-    private List<String> diasDiasponiveis;
+    //private String endereco;
+    private List<String> diasDisponiveis;
     private List<String> horariosDisponiveis;
     private String comentarios;
 }
