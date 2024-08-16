@@ -74,6 +74,7 @@ public class PsicologoController implements IPsicologoControl {
     @Override
     @PutMapping("/{id}")
     public ResponseEntity<Object> updatePsicologo(@PathVariable(value = "id") UUID id, @RequestBody @Valid PsicologoDTO psicologoDTO) {
+        
         Optional<Psicologo> psicologoOptional = psicologoService.findById(id);
         if (!psicologoOptional.isPresent()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Psicologo não encontrado!");
