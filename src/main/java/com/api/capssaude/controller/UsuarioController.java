@@ -1,11 +1,8 @@
 package com.api.capssaude.controller;
 
-import com.api.capssaude.dto.ProfDTO;
 import com.api.capssaude.dto.UsuarioDTO;
 import com.api.capssaude.interfaces.IUsuarioControl;
-import com.api.capssaude.model.Profissional;
 import com.api.capssaude.model.Usuario;
-import com.api.capssaude.service.ProfissionalService;
 import com.api.capssaude.service.UsuarioService;
 import jakarta.validation.Valid;
 import org.springframework.beans.BeanUtils;
