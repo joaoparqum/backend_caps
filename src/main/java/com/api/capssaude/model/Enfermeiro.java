@@ -25,7 +25,7 @@ public class Enfermeiro extends Pessoa implements Serializable{
     private String sexo;
     private String COREN;
     private String email;
-    private String endereco;
+    //private String endereco;
     private List<String> diasDisponiveis;
     private List<String> horariosDisponiveis;
     private String comentarios;
