@@ -10,13 +10,13 @@ import java.util.UUID;
 
 public record PacienteDTO(UUID id,
                           @NotBlank String nome,
-                          @Size(min = 11, max = 11) @NotBlank String cpf,
+                          @NotBlank String cpf,
                           @NotNull Date dataDeNascimento,
-                          @Size(min = 8, max = 9) String cep,
+                          String cep,
                           @NotBlank String bairro,
                           @NotBlank String logradouro,
                           @NotBlank String complemento,
-                          @Size(min = 11, max = 11) String telefone,
+                          String telefone,
                           @NotNull List<@NotBlank String> telefonesEmergencia,
                           @NotNull @NotBlank String cartaoSus) {
 }

@@ -10,8 +10,7 @@ public record MedicamentoDTO (UUID id,
      @NotBlank String nomeMedicamento,
      @NotBlank String descricao,
      @NotBlank String horario,
-     @NotBlank String dosagem,
-     Consulta consulta
+     @NotBlank String dosagem
      )                          
 {}
 
