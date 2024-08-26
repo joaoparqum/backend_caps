@@ -21,6 +21,6 @@ public class Paciente extends Pessoa implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
-
     private List<String> telefonesEmergencia;
+    private String cartaoSus;
 }

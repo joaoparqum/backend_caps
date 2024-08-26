@@ -17,5 +17,6 @@ public record PacienteDTO(UUID id,
                           @NotBlank String logradouro,
                           @NotBlank String complemento,
                           @Size(min = 11, max = 11) String telefone,
-                          @NotNull List<@NotBlank String> telefonesEmergencia) {
+                          @NotNull List<@NotBlank String> telefonesEmergencia,
+                          @NotNull @NotBlank String cartaoSus) {
 }
