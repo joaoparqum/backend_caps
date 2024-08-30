@@ -1,7 +1,6 @@
 package com.api.capssaude.service;
 
 import com.api.capssaude.interfaces.IUsuarioService;
-import com.api.capssaude.model.Profissional;
 import com.api.capssaude.model.Usuario;
 import com.api.capssaude.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;

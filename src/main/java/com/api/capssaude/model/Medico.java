@@ -1,9 +1,9 @@
 package com.api.capssaude.model;
 
+import com.api.capssaude.enums.Especialidade;
 import com.api.capssaude.pessoa.Pessoa;
 import jakarta.persistence.*;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -11,9 +11,9 @@ import java.util.List;
 import java.util.UUID;
 
 @Entity
-@Table(name = "TB_PROFISSIONAL")
+@Table(name = "TB_MEDICO")
 @Data
-public class Profissional extends Pessoa implements Serializable{
+public class Medico extends Pessoa implements Serializable{
 
     private static final long serialVersionUID = 1L;
 
@@ -22,9 +22,16 @@ public class Profissional extends Pessoa implements Serializable{
     private UUID id;
 
     private String sexo;
-    private String crm;
+
+    @Enumerated(EnumType.STRING)
+    private Especialidade especialidade;
+
     private String codEspecialidade;
-    private int especialdade;
-    private List<Date> diaAtendimento;
-    private List<String> horaAtendimento;
+    private List<String> diasAtendimento;
+    private List<String> horasAtendimento;
+    private String comentarios;
+
+    public String getCodigoRegistro() {
+        return this.especialidade.getCodigoRegistro();
+    }
 }
