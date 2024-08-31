@@ -1,5 +1,6 @@
 package com.api.capssaude.service;
 
+import com.api.capssaude.enums.Especialidade;
 import com.api.capssaude.interfaces.IMedicoService;
 import com.api.capssaude.model.Medico;
 import com.api.capssaude.repository.MedicoRepository;
@@ -34,6 +35,11 @@ public class MedicoService implements IMedicoService {
     @Override
     public void delete(Medico medico) {
         medicoRepository.delete(medico);
+    }
+
+    @Override
+    public List<Medico> findByEspecialidade(Especialidade especialidade){
+        return medicoRepository.findByEspecialidade(especialidade);
     }
 
 }

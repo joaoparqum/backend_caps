@@ -1,6 +1,7 @@
 package com.api.capssaude.controller;
 
 import com.api.capssaude.dto.MedicoDTO;
+import com.api.capssaude.enums.Especialidade;
 import com.api.capssaude.interfaces.IMedicoControl;
 import com.api.capssaude.model.Medico;
 import com.api.capssaude.service.MedicoService;
@@ -42,21 +43,30 @@ public class MedicoController implements IMedicoControl {
     @Override
     @GetMapping("/{id}")
     public ResponseEntity<Object> getOneProf(@PathVariable(value = "id") UUID id){
-        Optional<Medico> profissional = medicoService.findById(id);
-        if (!profissional.isPresent()) {
+        Optional<Medico> medico = medicoService.findById(id);
+        if (!medico.isPresent()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Profissonal não encontrado!");
         }
-        return ResponseEntity.status(HttpStatus.OK).body(profissional.get());
+        return ResponseEntity.status(HttpStatus.OK).body(medico.get());
+    }
+
+    @GetMapping("/especialidade/{especialidade}")
+    public ResponseEntity<Object> getMedicoByEspecialidade(@PathVariable(value = "especialidade") Especialidade especialidade){
+        List<Medico> medico = medicoService.findByEspecialidade(especialidade);
+        if (medico.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Profisional não encontrado!.");
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(medico);
     }
 
     @Override
     @DeleteMapping("/{id}")
     public ResponseEntity<Object> deleteProf(@PathVariable(value = "id") UUID id){
-        Optional<Medico> profOptional = medicoService.findById(id);
-        if (!profOptional.isPresent()) {
+        Optional<Medico> medicoOptional = medicoService.findById(id);
+        if (!medicoOptional.isPresent()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Profissonal não encontrado!");
         }
-        medicoService.delete(profOptional.get());
+        medicoService.delete(medicoOptional.get());
         return ResponseEntity.status(HttpStatus.OK).body("Profissonal deletado com sucesso!");
     }
 
@@ -64,13 +74,13 @@ public class MedicoController implements IMedicoControl {
     @PutMapping("/{id}")
     public ResponseEntity<Object> updateProf(@PathVariable(value = "id") UUID id,
                                                    @RequestBody @Valid MedicoDTO medicoDto){
-        Optional<Medico> profOptional = medicoService.findById(id);
-        if (!profOptional.isPresent()) {
+        Optional<Medico> medicoOptional = medicoService.findById(id);
+        if (!medicoOptional.isPresent()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Profissonal não encontrado!");
         }
         Medico medico = new Medico();
         BeanUtils.copyProperties(medicoDto, medico);
-        medico.setId(profOptional.get().getId());
+        medico.setId(medicoOptional.get().getId());
         return ResponseEntity.status(HttpStatus.OK).body(medicoService.save(medico));
     }
 }
