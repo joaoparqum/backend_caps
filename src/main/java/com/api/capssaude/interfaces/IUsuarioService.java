@@ -1,8 +1,6 @@
 package com.api.capssaude.interfaces;
 
-import com.api.capssaude.model.Paciente;
 import com.api.capssaude.model.Usuario;
-
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;

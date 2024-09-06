@@ -1,9 +1,6 @@
 package com.api.capssaude.dto;
 
 import java.util.UUID;
-
-import com.api.capssaude.model.Consulta;
-
 import jakarta.validation.constraints.NotBlank;
 
 public record MedicamentoDTO (UUID id,

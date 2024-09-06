@@ -8,7 +8,7 @@ Repositótio para hospedar o back-end do sistema SisCaps
 * **João Paulo Arquim** - *Dev Back-end* - [joaoparqum](https://github.com/joaoparqum)
 * **Cléberson Rocha** - *Dev Back-end* - [clebersonrch](https://github.com/clebersonrch)
 * **Felipe Ferreira** - *Dev Front-end/Back-end* - [felipe515](https://github.com/felipe515)
-* **Everton Araújo** - *Dev Back-end/Front-end* - [Evertondearas](https://github.com/Evertondearas)
+* **Everton Araujo** - *Dev Back-end/Front-end* - [Evertondearas](https://github.com/Evertondearas)
 
 Você também pode ver a lista de todos os [colaboradores](https://github.com/joaoparqum/backend_caps/colaboradores) que participaram deste projeto.
 

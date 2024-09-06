@@ -42,14 +42,6 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/x
 		<artifactId>hibernate-validator</artifactId>
 	</dependency>
 
-	<!--
-	<dependency>
-		<groupId>mysql</groupId>
-		<artifactId>mysql-connector-java</artifactId>
-		<version>8.0.33</version>
-	</dependency>
-	-->
-
 	<dependency>
 		<groupId>br.com.caelum.stella</groupId>
 		<artifactId>caelum-stella-core</artifactId>

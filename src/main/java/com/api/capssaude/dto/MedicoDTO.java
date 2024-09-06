@@ -1,7 +1,6 @@
 package com.api.capssaude.dto;
 
 import com.api.capssaude.enums.Especialidade;
-import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 

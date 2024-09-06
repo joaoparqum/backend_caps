@@ -2,12 +2,8 @@ package com.api.capssaude.model;
 
 import com.api.capssaude.pessoa.Pessoa;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 import lombok.Data;
-
 import java.io.Serializable;
-import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
