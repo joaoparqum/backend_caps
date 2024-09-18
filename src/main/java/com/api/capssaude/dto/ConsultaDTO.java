@@ -11,12 +11,12 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 public record ConsultaDTO( UUID id,
-@NotNull Paciente paciente,
+@NotNull String paciente,
 @NotNull Date data,
 @NotNull String horario,
 @NotBlank String sintomas,
 @NotNull String duracao,
-@NotNull List<Medicamento> medicamento,
+//@NotNull List<Medicamento> medicamento,
 @NotBlank String orientacao,
 @NotNull String AcompanhanteLegal  
 ){

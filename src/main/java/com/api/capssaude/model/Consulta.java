@@ -28,8 +28,7 @@ public class Consulta implements Serializable{
     private UUID id;
 
     @NotNull
-    @OneToOne
-    private Paciente paciente;
+    private String paciente;
     @NotNull
     private Date data;
     @NotNull
@@ -37,8 +36,8 @@ public class Consulta implements Serializable{
     @NotNull
     private String sintomas;
     private String duracao;
-    @OneToMany(mappedBy = "consulta")
-    private List<Medicamento> medicamento;
+    //@OneToMany(mappedBy = "consulta")
+    //private List<Medicamento> medicamento;
     @NotNull
     private String orientacao;
     private String AcompanhanteLegal;
